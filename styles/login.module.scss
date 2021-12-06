@@ -1,0 +1,23 @@
+.loginContainer {
+  width: 1440px;
+  height: 728px;
+  background: transparent linear-gradient(180deg, #ffecd7 0%, #ffc9c9 100%) 0%
+    0% no-repeat;
+  .headingPng {
+    width: 288px;
+    height: 106px;
+  }
+  > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .loginVendor {
+      margin-left: 95px;
+      width: 724px;
+      height: 507px;
+    }
+  }
+  .loginButton {
+    margin-top: 2rem;
+  }
+}
