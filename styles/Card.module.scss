@@ -1,0 +1,37 @@
+.cardContainer {
+  width: 200px;
+  height: 180px;
+  margin-top: 45px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  .subheading {
+    opacity: 0.5;
+    text-align: center;
+    justify-content: center;
+  }
+  //   .isViewDetails {
+  //     background: transparent linear-gradient(180deg, #f88a12 0%, #cd2d05 100%) 0%
+  //       0% no-repeat padding-box;
+  //     color: white;
+  //     justify-content: center;
+  //   }
+  .headingContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1.3vw;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .digitContainer {
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 1.6rem;
+  }
+}

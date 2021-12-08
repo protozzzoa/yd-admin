@@ -7,6 +7,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useFormik } from "formik";
+import { baseurl } from "../utility/auth";
+import { useRouter } from "next/router";
 import {
   Button,
   Card,
@@ -17,11 +19,14 @@ import {
 } from "@mui/material";
 
 const login = () => {
+  const router = useRouter();
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
-    userID: "",
+    email: "",
   });
+
+  // const [token, setToken] = React.useState();
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -36,20 +41,46 @@ const login = () => {
   const validate = useCallback((values) => {
     const errors = {};
 
-    if (values.userID === "") errors.userID = "Add a valid userID";
+    if (values.email === "") errors.email = "Add a valid email";
     if (values.password === "") errors.password = "Add a valid password";
-    console.log(errors);
+    // console.log(errors);
     return errors;
   }, []);
   const form = useFormik({
     initialValues: {
-      userID: "",
+      email: "",
       password: "",
     },
     validate,
     onSubmit: (values) => {
       console.log(values);
-      console.log(form);
+      // console.log(form);
+
+      const test = async () => {
+        try {
+          const result = await fetch(`${baseurl}/api/sm-login`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          });
+          const sessionToken = await result.json();
+          localStorage.setItem("JWTsessionToken", sessionToken.Authorization);
+          console.log(sessionToken);
+
+          if (
+            sessionToken.Authorization &&
+            sessionToken.Authorization != null &&
+            sessionToken.Authorization != undefined
+          ) {
+            router.push("/dashboardWithCharts");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      test();
     },
   });
 
@@ -83,13 +114,13 @@ const login = () => {
                     User ID
                   </InputLabel>
                   <OutlinedInput
-                    name="userID"
-                    value={form.values.userID}
+                    name="email"
+                    value={form.values.email}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     id="input-with-icon-adornment"
                     sx={{ marginBottom: "2rem" }}
-                    error={form.touched.userID && Boolean(form.errors.userID)}
+                    error={form.touched.email && Boolean(form.errors.email)}
                     endAdornment={
                       <InputAdornment position="end">
                         <AccountCircle />

@@ -1,6 +1,6 @@
 .loginContainer {
-  width: 1440px;
-  height: 728px;
+  min-height: 100vh;
+  overflow: auto;
   background: transparent linear-gradient(180deg, #ffecd7 0%, #ffc9c9 100%) 0%
     0% no-repeat;
   .headingPng {

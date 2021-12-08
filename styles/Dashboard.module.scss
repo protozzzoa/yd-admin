@@ -1,0 +1,25 @@
+.dashboardWithChartContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px;
+  background: transparent linear-gradient(180deg, #ffecd7 0%, #ffc9c9 100%) 0%
+    0% no-repeat padding-box;
+  margin: 59px 120px 82px 120px;
+  border-radius: 10px;
+}
+.Chart1 {
+  margin: 50px 120px 44px 120px;
+  width: 1200px;
+  height: 758px;
+  border: 1px solid #00000050;
+  border-radius: 10px;
+  > h2 {
+    margin-left: 56px;
+    margin-top: 24px;
+    font-size: 28px;
+    color: #777777;
+    text-align: left;
+  }
+}
