@@ -3,6 +3,7 @@ import DashboardCard from "../sdk/component/dashboardCard";
 import styles from "../styles/Dashboard.module.scss";
 import { baseurl } from "../utility/auth";
 import Chart1 from "../sdk/component/chartOne";
+import NavBar from "../sdk/component/navBar";
 
 function dashboardWithCharts() {
   const [dashboard, setDashboard] = React.useState("");
@@ -34,6 +35,7 @@ function dashboardWithCharts() {
 
   return (
     <>
+      <NavBar />
       <div className={styles.dashboardWithChartContainer}>
         <DashboardCard
           Maintext={"Total Cart Person"}
