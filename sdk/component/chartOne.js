@@ -28,10 +28,6 @@ function ChartOne() {
   const [chart1, setChart1] = React.useState([]);
   const [days, setDays] = React.useState("");
 
-  // const [now, setNow] = React.useState([]);
-  // const [Scheduled, setScheduled] = React.useState([]);
-  // const [date, setdate] = React.useState([]);
-
   useEffect(() => {
     const day = async () => {
       try {
@@ -82,17 +78,17 @@ function ChartOne() {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-  const labels1 = ["200", "100", "400", "500", "801"];
-  const labels2 = ["50", "150", "450", "70", "690"];
+  // const labels = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  // ];
+  // const labels1 = ["200", "100", "400", "500", "801"];
+  // const labels2 = ["50", "150", "450", "70", "690"];
   const data = {
     labels: date,
     datasets: [

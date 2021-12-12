@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,6 +10,7 @@ import OrangeButton from "./orangeButton";
 import styles from "../../styles/TableRequestList.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
+import { baseurl } from "../../utility/auth";
 
 function createData(SNo, UserID, Name, Contact, Action) {
   return { SNo, UserID, Name, Contact, Action };
@@ -22,9 +23,52 @@ const rows = [
   createData(4, 305, 3.7, 67, 4.3),
   createData(5, 356, 16.0, 49, 3.9),
 ];
+
 const headings = ["SNo", "UserID", "Name", "Contact", "Action"];
-export default function TableRequestList({ handleStateFunction }) {
+
+export default function TableRequestList({ OnChange }) {
   const router = useRouter();
+  const [data, setData] = React.useState([]);
+
+  // function newArray(data) {
+  //   const newRow = data?.map((eachEntry) => {
+  //     createData(
+  //       eachEntry.id,
+  //       eachEntry.id,
+  //       eachEntry.name,
+  //       eachEntry.phone
+  //     );
+  //   });
+  //   console.log(newRow);
+
+  //   return newRow;
+  // }
+
+  const getdata = async () => {
+    try {
+      const fetchedData = await fetch(`${baseurl}/api/store-manager/staff`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: localStorage.getItem("JWTsessionToken"),
+        },
+      });
+      const fetchingData = await fetchedData.json();
+      setData(fetchingData);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  // useEffect(() => {
+  //   newArray();
+  // }, [data]);
+
   return (
     <>
       <div className={styles.wholeContainer}>
@@ -33,7 +77,8 @@ export default function TableRequestList({ handleStateFunction }) {
           <div
             className={styles.tableRequestListCross}
             onClick={() => {
-              !handleStateFunction;
+              OnChange();
+              // getdata();
             }}
           >
             <CloseIcon sx={{ color: "white" }} />

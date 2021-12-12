@@ -6,9 +6,13 @@ import TableRequestList from "./tableRequestList";
 function NavBar() {
   const router = useRouter();
   const [isSelected, setIsSelected] = useState(false);
+
+  function handleChange(e) {
+    setIsSelected(!isSelected);
+  }
   return (
     <>
-      {isSelected && <TableRequestList handleStateFunction={isSelected} />}
+      {isSelected && <TableRequestList OnChange={handleChange} />}
       <div className={styles.navBar}>
         <div className={styles.left}>
           <img src="./White BG@2x.png" width="73px" height="51px" />
