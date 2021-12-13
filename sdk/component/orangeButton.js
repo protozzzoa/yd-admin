@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import PersonBoyUser from "../../pages/personBoyUser";
+import PersonBoyUser from "./PersonBoyUser";
+import { useRouter } from "next/router";
 
 function OrangeButton({
   width,
@@ -16,29 +17,30 @@ function OrangeButton({
     setCartBoy(false);
   }
 
+  const router = useRouter();
   return (
     <>
-      {cartBoy && type === "Total Cart Person" && (
+      {/* {cartBoy && type === "TotalCartPerson" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Total Delivery Boy" && (
+      {cartBoy && type === "TotalDeliveryBoy" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Total Users" && (
+      {cartBoy && type === "TotalUsers" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Unassigned orders" && (
+      {cartBoy && type === "UnassignedOrders" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Total Items" && (
+      {cartBoy && type === "TotalItems" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Denied/Disputed order" && (
+      {cartBoy && type === "Denied/DisputedOrder" && (
         <PersonBoyUser type={type} onChange={handleChange} />
       )}
-      {cartBoy && type === "Scheduled order" && (
+      {cartBoy && type === "ScheduledOrder" && (
         <PersonBoyUser type={type} onChange={handleChange} />
-      )}
+      )} */}
 
       <Button
         variant="contained"
@@ -50,7 +52,14 @@ function OrangeButton({
         }}
         onClick={() => {
           console.log("hello button is working");
-          setCartBoy(!cartBoy);
+          // setCartBoy(!cartBoy);
+          if (
+            type === "TotalCartPerson" ||
+            type === "TotalDeliveryBoy" ||
+            type === "TotalUsers"
+          ) {
+            router.push(`/CartPersonDeliveryBoyUserDetails/${type}`);
+          }
         }}
         {...rest}
       >

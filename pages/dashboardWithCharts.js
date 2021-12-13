@@ -39,36 +39,36 @@ function dashboardWithCharts() {
       <NavBar />
       <div className={styles.dashboardWithChartContainer}>
         <DashboardCard
-          Maintext={"Total Cart Person"}
+          Maintext={"TotalCart Person"}
           digit={dashboard.cartBoyCount}
           color={"#F88A12"}
-          type={"Total Cart Person"}
+          type={"TotalCartPerson"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Delivery Boy"}
-          type={"Total Delivery Boy"}
+          type={"TotalDeliveryBoy"}
           digit={dashboard.deliveryBoyCount}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Users"}
-          type={"Total Users"}
+          type={"TotalUsers"}
           digit={dashboard.userCount}
           color={"#19006E"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Unassigned orders"}
-          type={"Unassigned orders"}
+          type={"UnassignedOrders"}
           digit={dashboard.unassignedOrders}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Items"}
-          type={"Total Items"}
+          type={"TotalItems"}
           digit={dashboard.totalItems}
           color={"#F88A12"}
           isViewDetail={true}
@@ -91,14 +91,14 @@ function dashboardWithCharts() {
         />
         <DashboardCard
           Maintext={"Denied/Disputed order"}
-          type={"Denied/Disputed order"}
+          type={"Denied/DisputedOrder"}
           digit={dashboard.deniedOrder}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Scheduled order"}
-          type={"Scheduled order"}
+          type={"ScheduledOrder"}
           digit={dashboard.scheduledOrder}
           color={"#F88A12"}
           isViewDetail={true}

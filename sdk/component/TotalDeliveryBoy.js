@@ -6,14 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import OrangeButton from "../sdk/component/orangeButton";
-import styles from "../styles/PersonBoyUser.module.scss";
+import OrangeButton from "./orangeButton";
+import styles from "../../styles/PersonBoyUser.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
-import { baseurl } from "../utility/auth";
+import { baseurl } from "../../utility/auth";
 
 const headings = [
-  "SNo",
   "Name",
   "Contact",
   "Registration Date",
@@ -25,7 +24,7 @@ const headings = [
   "Flagged",
 ];
 
-export default function personBoyUser({ type, onChange }) {
+export default function TotalDeliveryBoy({ type, onChange }) {
   const router = useRouter();
   const [data, setData] = React.useState([]);
 
@@ -56,7 +55,7 @@ export default function personBoyUser({ type, onChange }) {
   return (
     <>
       <div className={styles.wholeContainer}>
-        <div className={styles.tableRequestListHeadingContainer}>
+        {/* <div className={styles.tableRequestListHeadingContainer}>
           <div className={styles.tableRequestListHeading}>{type}</div>
           <div
             className={styles.tableRequestListCross}
@@ -66,7 +65,7 @@ export default function personBoyUser({ type, onChange }) {
           >
             <CloseIcon sx={{ color: "white" }} />
           </div>
-        </div>
+        </div> */}
         <TableContainer
           sx={{
             borderRadius: "20px",
@@ -96,9 +95,9 @@ export default function personBoyUser({ type, onChange }) {
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell align="center" component="th" scope="row">
+                  {/* <TableCell align="center" component="th" scope="row">
                     {row.id}
-                  </TableCell>
+                  </TableCell> */}
                   <TableCell align="center" sx={{ color: "#F88A12" }}>
                     {row.name}
                   </TableCell>
