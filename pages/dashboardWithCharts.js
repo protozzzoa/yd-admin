@@ -3,6 +3,7 @@ import DashboardCard from "../sdk/component/dashboardCard";
 import styles from "../styles/Dashboard.module.scss";
 import { baseurl } from "../utility/auth";
 import Chart1 from "../sdk/component/chartOne";
+import Chart2 from "../sdk/component/chartTwo";
 import NavBar from "../sdk/component/navBar";
 
 function dashboardWithCharts() {
@@ -41,28 +42,33 @@ function dashboardWithCharts() {
           Maintext={"Total Cart Person"}
           digit={dashboard.cartBoyCount}
           color={"#F88A12"}
+          type={"Total Cart Person"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Delivery Boy"}
+          type={"Total Delivery Boy"}
           digit={dashboard.deliveryBoyCount}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Users"}
+          type={"Total Users"}
           digit={dashboard.userCount}
           color={"#19006E"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Unassigned orders"}
+          type={"Unassigned orders"}
           digit={dashboard.unassignedOrders}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Total Items"}
+          type={"Total Items"}
           digit={dashboard.totalItems}
           color={"#F88A12"}
           isViewDetail={true}
@@ -85,12 +91,14 @@ function dashboardWithCharts() {
         />
         <DashboardCard
           Maintext={"Denied/Disputed order"}
+          type={"Denied/Disputed order"}
           digit={dashboard.deniedOrder}
           color={"#F88A12"}
           isViewDetail={true}
         />
         <DashboardCard
           Maintext={"Scheduled order"}
+          type={"Scheduled order"}
           digit={dashboard.scheduledOrder}
           color={"#F88A12"}
           isViewDetail={true}
@@ -99,6 +107,10 @@ function dashboardWithCharts() {
       <div className={styles.Chart1}>
         <h2>Bookings(Now VS Scheduled)</h2>
         <Chart1 />
+      </div>
+      <div className={styles.Chart1}>
+        <h2>Accepted and denied bookings graph</h2>
+        <Chart2 />
       </div>
     </>
   );

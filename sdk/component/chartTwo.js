@@ -24,14 +24,14 @@ ChartJS.register(
 
 function ChartOne() {
   const [location, setLocation] = React.useState("");
-  const [chart1, setChart1] = React.useState([]);
+  const [chart2, setChart2] = React.useState([]);
   const [days, setDays] = React.useState("14");
 
   useEffect(() => {
     const day = async () => {
       try {
         const responseChart1 = await fetch(
-          `${baseurl}/api/store-manager/dashboard/nsg/${days}`,
+          `${baseurl}/api/store-manager/dashboard/adg/${days}`,
           {
             method: "GET",
             headers: {
@@ -41,7 +41,7 @@ function ChartOne() {
           }
         );
         const responseChartData = await responseChart1.json();
-        setChart1(responseChartData);
+        setChart2(responseChartData);
         console.log(responseChartData);
       } catch (error) {
         console.log(error);
@@ -50,29 +50,25 @@ function ChartOne() {
     day();
   }, [days]);
 
-  const { date, now, Scheduled } = useMemo(() => {
+  const { date, accepted_orders, declined_orders } = useMemo(() => {
     return {
-      date: chart1.map((item) => {
+      date: chart2.map((item) => {
         return format(new Date(item.date), "dd/mm");
       }),
-      now: chart1.map((item) => {
-        return item.nowOrders;
+      accepted_orders: chart2.map((item) => {
+        return item.acceptedOrders;
       }),
-      Scheduled: chart1.map((item) => {
-        return item.scheduledOrders;
+      declined_orders: chart2.map((item) => {
+        return item.declinedOrders;
       }),
     };
-  }, [chart1]);
+  }, [chart2]);
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
         position: "top",
-      },
-      title: {
-        display: true,
-        text: "Chart.js Bar Chart",
       },
     },
   };
@@ -92,13 +88,13 @@ function ChartOne() {
     labels: date,
     datasets: [
       {
-        label: "Now",
-        data: now,
+        label: "Accepted",
+        data: accepted_orders,
         backgroundColor: "#6AFF6A",
       },
       {
-        label: "Scheduled",
-        data: Scheduled,
+        label: "Denied",
+        data: declined_orders,
         backgroundColor: "#FF8383",
       },
     ],
