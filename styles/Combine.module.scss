@@ -6,5 +6,61 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 3rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+    border-radius: 10px 10px 0 0;
+    border: 1.2px solid #707070;
+    .TotalCart {
+      border-right: 1px solid #707070;
+      font-size: 22px;
+      color: #707070;
+      display: flex;
+      justify-self: center;
+      padding: 10px 0;
+      padding-right: 9vw;
+    }
+    .TotalCart:hover {
+      cursor: pointer;
+    }
+
+    .TotalDelivery {
+      border-right: 1px solid #707070;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      color: #707070;
+      padding: 10px 0;
+      padding-right: 9vw;
+    }
+    .TotalDelivery:hover {
+      cursor: pointer;
+    }
+    .TotalUser {
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      color: #707070;
+      padding: 10px 0;
+    }
+    .TotalUser:hover {
+      cursor: pointer;
+    }
   }
+  .tableDiv {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.active {
+  border-right: 1px solid #f88a12;
+  font-size: 22px;
+  color: #f88a12;
+  display: flex;
+  justify-self: center;
+  padding: 10px 0;
+  padding-right: 9vw;
+}
+.activeContainer {
+  border: 1px solid #f88a12;
 }

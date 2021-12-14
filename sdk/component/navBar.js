@@ -15,12 +15,12 @@ function NavBar() {
       {isSelected && <TableRequestList OnChange={handleChange} />}
       <div className={styles.navBar}>
         <div className={styles.left}>
-          <img src="./White BG@2x.png" width="73px" height="51px" />
+          <img src="/yd-icon.png" width="73px" height="51px" />
           <div className={styles.Dashboard}>Dashboard</div>
         </div>
         <div className={styles.right}>
           <img
-            src="./Group 1623@2x.png"
+            src="/Group 1623@2x.png"
             width="73px"
             height="51px"
             onClick={() => {
@@ -28,7 +28,7 @@ function NavBar() {
             }}
           />
           <img
-            src="./Icon ionic-ios-log-out@2x.png"
+            src="/Icon ionic-ios-log-out@2x.png"
             width="73px"
             height="51px"
             onClick={() => {

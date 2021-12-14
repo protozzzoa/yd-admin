@@ -22,6 +22,8 @@ function CombineRoutes() {
   console.log(router);
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const [style, setStyle] = React.useState(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -74,7 +76,9 @@ function CombineRoutes() {
       <div className={styles.BaapContainer}>
         <div className={styles.Combine}>
           <div
-            styles={{ cursor: "pointer" }}
+            className={
+              type === "TotalCartPerson" ? styles.active : styles.TotalCart
+            }
             onClick={() => {
               router.push("/CartPersonDeliveryBoyUserDetails/TotalCartPerson");
             }}
@@ -82,7 +86,9 @@ function CombineRoutes() {
             Cart Person Details
           </div>
           <div
-            styles={{ cursor: "pointer" }}
+            className={
+              type === "TotalDeliveryBoy" ? styles.active : styles.TotalDelivery
+            }
             onClick={() => {
               router.push("/CartPersonDeliveryBoyUserDetails/TotalDeliveryBoy");
             }}
@@ -90,7 +96,7 @@ function CombineRoutes() {
             Delivery boy Details
           </div>
           <div
-            styles={{ cursor: "pointer" }}
+            className={type === "TotalUsers" ? styles.active : styles.TotalUser}
             onClick={() => {
               router.push("/CartPersonDeliveryBoyUserDetails/TotalUsers");
             }}
@@ -98,9 +104,11 @@ function CombineRoutes() {
             User details
           </div>
         </div>
-        {type === "TotalCartPerson" && <PersonBoyUser />}
-        {type === "TotalDeliveryBoy" && <TotalDeliveryBoy />}
-        {type === "TotalUsers" && <TotalUser />}
+        <div className={styles.tableDiv}>
+          {type === "TotalCartPerson" && <PersonBoyUser />}
+          {type === "TotalDeliveryBoy" && <TotalDeliveryBoy />}
+          {type === "TotalUsers" && <TotalUser />}
+        </div>
       </div>
 
       {/* <Box sx={{ width: "100%" }}>

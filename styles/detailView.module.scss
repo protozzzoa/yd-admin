@@ -1,0 +1,48 @@
+.mainContainer {
+  width: 100%;
+  margin: 50px;
+}
+
+.navbar {
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.brandContainer {
+  display: flex;
+  align-items: center;
+  img {
+    height: 60px;
+  }
+}
+
+.rightNavContainer {
+  > button {
+    color: #fff;
+  }
+}
+.tabContainer {
+  width: 80%;
+  margin: 0 auto;
+  > div > div > div {
+    justify-content: center;
+
+    > button {
+      flex: 1;
+      border: 1px solid #000;
+      &.active {
+        border: 3px solid #9b1717;
+      }
+
+      &:first-child {
+        border-radius: 20px 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 20px 0 0;
+      }
+    }
+  }
+}

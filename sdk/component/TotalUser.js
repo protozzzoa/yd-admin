@@ -11,6 +11,7 @@ import styles from "../../styles/PersonBoyUser.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
 import { baseurl } from "../../utility/auth";
+import { borderRight } from "@mui/system";
 
 const headings = [
   "Name",
@@ -68,6 +69,9 @@ export default function TotalUser({ type, onChange }) {
         <TableContainer
           sx={{
             borderRadius: "20px",
+            // alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
           }}
           component={Paper}
         >
@@ -80,7 +84,8 @@ export default function TotalUser({ type, onChange }) {
                     align="center"
                     sx={{
                       color: `#707070`,
-                      backgroundColor: "#FFF0DF 0% 0% no-repeat padding-box",
+                      background: "#F88A124D 0% 0% no-repeat padding-box",
+                      borderRight: "1px solid rgba(224,224,224,1)",
                     }}
                   >
                     {one}
@@ -92,27 +97,80 @@ export default function TotalUser({ type, onChange }) {
               {data.map((row, index) => (
                 <TableRow
                   key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  // sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell align="center" sx={{ color: "#F88A12" }}>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      color: "#F88A12",
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                    }}
+                  >
                     {row.name}
                   </TableCell>
-                  <TableCell align="center">{row.contact}</TableCell>
-                  <TableCell align="center">{row.regDate}</TableCell>
-                  <TableCell align="center" sx={{ color: "#F88A12" }}>
+                  <TableCell
+                    align="center"
+                    sx={{ borderRight: "1px solid rgba(224,224,224,1)" }}
+                  >
+                    {row.contact}
+                  </TableCell>
+                  <TableCell
+                    align="center "
+                    sx={{ borderRight: "1px solid rgba(224,224,224,1)" }}
+                  >
+                    {row.regDate}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      color: "#F88A12",
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                    }}
+                  >
                     {row.totalOrders}
                   </TableCell>
-                  <TableCell align="center" sx={{ color: "#FF0000" }}>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      color: "#FF0000",
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                    }}
+                  >
                     {row.deniedOrders}
                   </TableCell>
-                  <TableCell align="center" sx={{ color: "#4612F8" }}>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      color: "#4612F8",
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                    }}
+                  >
                     {row.canceledOrders}
                   </TableCell>
-                  <TableCell align="center" sx={{ color: "#21F812" }}>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      color: "#21F812",
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                    }}
+                  >
                     {row.totalAmount}
                   </TableCell>
-                  <TableCell align="center">{row.avgRating}</TableCell>
-                  <TableCell align="center">{row.flagged}</TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ borderRight: "1px solid rgba(224,224,224,1)" }}
+                  >
+                    {row.avgRating}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{
+                      borderRight: "1px solid rgba(224,224,224,1)",
+                      padding: 0,
+                    }}
+                  >
+                    {row.flagged}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
